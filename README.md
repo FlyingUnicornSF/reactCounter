@@ -1,3 +1,12 @@
+reuseable button component - this should keep the bottons look the same if we add CSS. 
+
+number component - text display.  state keeps what is displaying and props changes the state. Use state and prevProps to prevent from going into render loop.
+
+counterList component - using React.createRef (some reason it is not a state, this supposed to be kept in an array) to use functions in the child component. also should be able to lift up the state to keep two states in two different components synched.
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
