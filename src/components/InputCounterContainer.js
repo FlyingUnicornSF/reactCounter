@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from "./Bottons";
-import { NumDisplay } from "./Display";
+import InputNumDisplay from './Display';
 
-class CounterContainer extends Component {
+class InputCounterContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -21,16 +21,17 @@ class CounterContainer extends Component {
   nothing(){
     console.log("OMG please stop doing things.");
   }
+
   math(operator){
     switch (operator) {
       case "add":
       this.setState((state, props)=>{
-        return {num: state.num + 1}
+        return {num: parseInt(this.state.num) + parseInt(1)}
       });
       break;
       case "subtract":
       this.setState((state, props)=>{
-        return {num: state.num - 1}
+        return {num: parseInt(this.state.num) - 1}
       });
       break;
       // TODO: add multiply and divide n' such
@@ -49,10 +50,10 @@ class CounterContainer extends Component {
         <div className="counter-container">
           <Button onClick={this.onButtonClick} tag="foo" value="add"></Button>
           <Button onClick={this.onButtonClick} tag="foo" value="subtract"></Button>
-          <NumDisplay id={this.props.id} name={this.props.name}>{this.state.num}</NumDisplay>
+          <InputNumDisplay type="number" value={this.state.num} />
           <hr></hr>
         </div>
       );
     }
 }
-export default CounterContainer;
+export default InputCounterContainer;
