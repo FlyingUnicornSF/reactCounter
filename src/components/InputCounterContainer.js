@@ -6,23 +6,25 @@ class InputCounterContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      num: 0
+      num: 0,
     }
     this.nothing = this.nothing.bind(this);
     this.math = this.math.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate = (prevProps, prevState) => {
     console.log("componentdidupdate, this.props, prevProps", this.props, prevProps, this.state, prevState);
     if (this.state === prevState) {
       this.nothing();
     }
   }
-  nothing(){
+  nothing= () => {
     console.log("OMG please stop doing things.");
   }
 
-  math(operator){
+  math = operator => {
     switch (operator) {
       case "add":
       this.setState((state, props)=>{
@@ -43,14 +45,21 @@ class InputCounterContainer extends Component {
       console.log(event.target.value);
       let operator = event.target.value;
       this.math(operator);
-    };
-
-    render(){
+    }
+    // this method is getting passed to the child component as a prop
+    handleInputChange = number => {
+      console.log('here?', parseInt(number))
+      this.setState({num: parseInt(number)})
+    }
+    render = () =>{
       return(
-        <div className="counter-container">
-          <Button onClick={this.onButtonClick} tag="foo" value="add"></Button>
-          <Button onClick={this.onButtonClick} tag="foo" value="subtract"></Button>
-          <InputNumDisplay type="number" value={this.state.num} />
+        <div className="input-counter-container">
+          <Button onClick={this.onButtonClick} tag="foo" value="add" />
+          <Button onClick={this.onButtonClick} tag="foo" value="subtract" />
+          <p>container's this.state.number {this.state.num}</p>
+          {/* <InputNumDisplay type="number" value={this.state.num} /> */}
+          <InputNumDisplay type="number" value={this.state.num} onInputChange={this.handleInputChange} />
+          {/* <InputNumDisplay type="text" value={this.state.letter} onInputChange={this.handleInputChange} /> */}
           <hr></hr>
         </div>
       );

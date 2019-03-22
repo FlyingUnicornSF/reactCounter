@@ -7,6 +7,7 @@ class CounterList extends Component {
     super(props);
     this.state = {
       counters: [],
+      total: 0
     }
     this.counterRefs = [];
     this.removeButtonClick =  this.removeButtonClick.bind(this);
@@ -34,6 +35,7 @@ class CounterList extends Component {
         let newCounter = (<div key={id}><Button tag={id} onClick={this.removeButtonClick} value="remove this counter"/><CounterContainer name={id} ref={ newRef }/> </div>)
         this.setState({counters: [...this.state.counters, newCounter]})
         this.counterRefs.push(newRef);
+        console.log(this.counterRefs)
       break;
       case "add":
         this.counterRefs.forEach(ref => {
@@ -51,7 +53,7 @@ class CounterList extends Component {
     event.preventDefault();
   };
 
-  render(){
+  render = () => {
     console.log("i'm in render", this.state.counters)
       return(
           <div className="counter-list">
