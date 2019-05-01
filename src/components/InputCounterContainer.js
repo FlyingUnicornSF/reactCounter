@@ -9,7 +9,7 @@ class InputCounterContainer extends Component {
       num: 0,
     }
     this.nothing = this.nothing.bind(this);
-    this.math = this.math.bind(this);
+    this.mathSetSate = this.mathSetSate.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     
@@ -24,7 +24,7 @@ class InputCounterContainer extends Component {
     console.log("OMG please stop doing things.");
   }
 
-  math = operator => {
+  mathSetSate = operator => {
     switch (operator) {
       case "add":
       this.setState((state, props)=>{
@@ -44,7 +44,7 @@ class InputCounterContainer extends Component {
     onButtonClick = event => {
       console.log(event.target.value);
       let operator = event.target.value;
-      this.math(operator);
+      this.mathSetSate(operator);
     }
     // this method is getting passed to the child component as a prop
     handleInputChange = number => {

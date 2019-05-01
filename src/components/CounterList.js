@@ -56,7 +56,7 @@ class CounterList extends Component {
   render = () => {
     console.log("i'm in render", this.state.counters)
       return(
-          <div className="counter-list">
+          <div className="counter-list" style={{ backgroundColor: 'honeydew', width: '50%', border: '1px solid darkslateblue', margin: 'auto' }}>
             <Button onClick={this.onButtonClick} tag="foo" value="addCounter">add Counter</Button>
             <Button onClick={this.onButtonClick} tag="foo" value="add">add one to ALL </Button>
             <Button onClick={this.onButtonClick} tag="foo" value="subtract">subtract one from All</Button>

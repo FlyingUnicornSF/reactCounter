@@ -3,6 +3,7 @@ import './App.css';
 import CounterContainer from './components/CounterContainer';
 import InputCounterContainer from './components/InputCounterContainer';
 import CounterList from './components/CounterList';
+import InputCounterList from './components/inputCounterList';
 class App extends Component {
   render() {
     return (
@@ -13,6 +14,7 @@ class App extends Component {
         <InputCounterContainer/> 
         <CounterContainer/>
         <CounterList />
+        <InputCounterList />
       </div>
     );
   }

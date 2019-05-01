@@ -34,7 +34,7 @@ class InputNumDisplay extends Component {
     const number = this.props.value;
     // const letter = this.props.letter;
     return(
-      <div class="input-num-deplay" id={this.props.id}>
+      <div className="input-num-deplay" id={this.props.id}>
         <p>state in InputNumDisplay { number }</p>
         <input value={ number } onChange={this.handleChange}/>
         {/* <input value={ letter } onChange={this.handleChange}/> */}
